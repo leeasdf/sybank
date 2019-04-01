@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntListInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntListInfoEntity" id="entListInfoMap">
+        <result property="id" column="id"/>
+        <result property="tycId" column="TYC_ID"/>
+        <result property="name" column="NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="legalPersonId" column="LEGAL_PERSON_ID"/>
+        <result property="legalPersonName" column="LEGAL_PERSON_NAME"/>
+        <result property="entityType" column="ENTITY_TYPE"/>
+        <result property="estiblishTime" column="ESTIBLISH_TIME"/>
+        <result property="regNumber" column="REG_NUMBER"/>
+        <result property="regCapital" column="REG_CAPITAL"/>
+        <result property="regLocation" column="REG_LOCATION"/>
+        <result property="regStatus" column="REG_STATUS"/>
+        <result property="regInstitute" column="REG_INSTITUTE"/>
+        <result property="companyOrgType" column="COMPANY_ORG_TYPE"/>
+        <result property="type" column="TYPE"/>
+        <result property="fromTime" column="FROM_TIME"/>
+        <result property="toTime" column="TO_TIME"/>
+        <result property="logo" column="LOGO"/>
+        <result property="weibo" column="WEIBO"/>
+        <result property="address" column="ADDRESS"/>
+        <result property="email" column="EMAIL"/>
+        <result property="businessScope" column="BUSINESS_SCOPE"/>
+        <result property="haveReport" column="HAVE_REPORT"/>
+        <result property="base" column="BASE"/>
+        <result property="phoneList" column="PHONE_LIST"/>
+        <result property="websiteList" column="WEBSITE_LIST"/>
+        <result property="sourceFlag" column="SOURCE_FLAG"/>
+        <result property="province" column="PROVINCE"/>
+        <result property="city" column="CITY"/>
+        <result property="area" column="AREA"/>
+        <result property="industry" column="INDUSTRY"/>
+        <result property="socialStaffNum" column="SOCIAL_STAFF_NUM"/>
+        <result property="collectDate" column="COLLECT_DATE"/>
+        <result property="baseinfoFlag" column="BASEINFO_FLAG"/>
+        <result property="holderFlag" column="HOLDER_FLAG"/>
+        <result property="inverstFlag" column="INVERST_FLAG"/>
+        <result property="changeinfoFlag" column="CHANGEINFO_FLAG"/>
+        <result property="branchFlag" column="BRANCH_FLAG"/>
+        <result property="lawSuitFlag" column="LAW_SUIT_FLAG"/>
+        <result property="courtAnnouncementFlag" column="COURT_ANNOUNCEMENT_FLAG"/>
+        <result property="dishonestFlag" column="DISHONEST_FLAG"/>
+        <result property="zhixinginfoFlag" column="ZHIXINGINFO_FLAG"/>
+        <result property="ktannouncementFlag" column="KTANNOUNCEMENT_FLAG"/>
+        <result property="abnormalFlag" column="ABNORMAL_FLAG"/>
+        <result property="creditChinaFlag" column="CREDIT_CHINA_FLAG"/>
+        <result property="equityInfoFlag" column="EQUITY_INFO_FLAG"/>
+        <result property="mortgageInfoFlag" column="MORTGAGE_INFO_FLAG"/>
+        <result property="ownTaxFlag" column="OWN_TAX_FLAG"/>
+        <result property="bidsFlag" column="BIDS_FLAG"/>
+        <result property="employmentsFlag" column="EMPLOYMENTS_FLAG"/>
+        <result property="tmFlag" column="TM_FLAG"/>
+        <result property="patentsFlag" column="PATENTS_FLAG"/>
+        <result property="copyRegWorksFlag" column="COPY_REG_WORKS_FLAG"/>
+        <result property="copyRegFlag" column="COPY_REG_FLAG"/>
+        <result property="icpFlag" column="ICP_FLAG"/>
+        <result property="newsFlag" column="NEWS_FLAG"/>
+        <result property="oneKeyCFlag" column="ONE_KEY_C_FLAG"/>
+        <result property="annualreportFlag" column="ANNUALREPORT_FLAG"/>
+        <result property="companyInfoFlag" column="COMPANY_INFO_FLAG"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+        <result property="listedFlag" column="LISTED_FLAG"/>
+        <result property="phoneNumber" column="PHONE_NUMBER"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntListInfoEntity">
+        insert into ENT_LIST_INFO(
+						    TYC_ID,
+						    NAME,
+						    CREDIT_CODE,
+						    LEGAL_PERSON_ID,
+						    LEGAL_PERSON_NAME,
+						    ENTITY_TYPE,
+						    ESTIBLISH_TIME,
+						    REG_NUMBER,
+						    REG_CAPITAL,
+						    REG_LOCATION,
+						    REG_STATUS,
+						    REG_INSTITUTE,
+						    COMPANY_ORG_TYPE,
+						    TYPE,
+						    FROM_TIME,
+						    TO_TIME,
+						    LOGO,
+						    WEIBO,
+						    ADDRESS,
+						    EMAIL,
+						    BUSINESS_SCOPE,
+						    HAVE_REPORT,
+						    BASE,
+						    PHONE_LIST,
+						    WEBSITE_LIST,
+						    SOURCE_FLAG,
+						    PROVINCE,
+						    CITY,
+						    AREA,
+						    INDUSTRY,
+						    SOCIAL_STAFF_NUM,
+						    COLLECT_DATE,
+						    BASEINFO_FLAG,
+						    HOLDER_FLAG,
+						    INVERST_FLAG,
+						    CHANGEINFO_FLAG,
+						    BRANCH_FLAG,
+						    LAW_SUIT_FLAG,
+						    COURT_ANNOUNCEMENT_FLAG,
+						    DISHONEST_FLAG,
+						    ZHIXINGINFO_FLAG,
+						    KTANNOUNCEMENT_FLAG,
+						    ABNORMAL_FLAG,
+						    CREDIT_CHINA_FLAG,
+						    EQUITY_INFO_FLAG,
+						    MORTGAGE_INFO_FLAG,
+						    OWN_TAX_FLAG,
+						    BIDS_FLAG,
+						    EMPLOYMENTS_FLAG,
+						    TM_FLAG,
+						    PATENTS_FLAG,
+						    COPY_REG_WORKS_FLAG,
+						    COPY_REG_FLAG,
+						    ICP_FLAG,
+						    NEWS_FLAG,
+						    ONE_KEY_C_FLAG,
+						    ANNUALREPORT_FLAG,
+						    COMPANY_INFO_FLAG,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS,
+						    VERSION
+						    LISTED_FLAG,
+						    PHONE_NUMBER,
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.tycId},
+	            #{item.name},
+	            #{item.creditCode},
+	            #{item.legalPersonId},
+	            #{item.legalPersonName},
+	            #{item.entityType},
+	            #{item.estiblishTime},
+	            #{item.regNumber},
+	            #{item.regCapital},
+	            #{item.regLocation},
+	            #{item.regStatus},
+	            #{item.regInstitute},
+	            #{item.companyOrgType},
+	            #{item.type},
+	            #{item.fromTime},
+	            #{item.toTime},
+	            #{item.logo},
+	            #{item.weibo},
+	            #{item.address},
+	            #{item.email},
+	            #{item.businessScope},
+	            #{item.haveReport},
+	            #{item.base},
+	            #{item.phoneList},
+	            #{item.websiteList},
+	            #{item.sourceFlag},
+	            #{item.province},
+	            #{item.city},
+	            #{item.area},
+	            #{item.industry},
+	            #{item.socialStaffNum},
+	            #{item.collectDate},
+	            #{item.baseinfoFlag},
+	            #{item.holderFlag},
+	            #{item.inverstFlag},
+	            #{item.changeinfoFlag},
+	            #{item.branchFlag},
+	            #{item.lawSuitFlag},
+	            #{item.courtAnnouncementFlag},
+	            #{item.dishonestFlag},
+	            #{item.zhixinginfoFlag},
+	            #{item.ktannouncementFlag},
+	            #{item.abnormalFlag},
+	            #{item.creditChinaFlag},
+	            #{item.equityInfoFlag},
+	            #{item.mortgageInfoFlag},
+	            #{item.ownTaxFlag},
+	            #{item.bidsFlag},
+	            #{item.employmentsFlag},
+	            #{item.tmFlag},
+	            #{item.patentsFlag},
+	            #{item.copyRegWorksFlag},
+	            #{item.copyRegFlag},
+	            #{item.icpFlag},
+	            #{item.newsFlag},
+	            #{item.oneKeyCFlag},
+	            #{item.annualreportFlag},
+	            #{item.companyInfoFlag},
+	            sysdate,
+	            sysdate,
+	            1,
+	            0
+	            #{item.listedFlag},
+	            #{item.phoneNumber},
+	     )
+        </foreach>
+    </insert>
+</mapper>

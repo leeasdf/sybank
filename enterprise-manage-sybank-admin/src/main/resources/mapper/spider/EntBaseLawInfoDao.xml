@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntBaseLawInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntBaseLawInfoEntity" id="entBaseLawInfoMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="summary" column="SUMMARY"/>
+        <result property="phoneList" column="PHONE_LIST"/>
+        <result property="permit" column="PERMIT"/>
+        <result property="organizationForm" column="ORGANIZATION_FORM"/>
+        <result property="entityType" column="ENTITY_TYPE"/>
+        <result property="tycId" column="TYC_ID"/>
+        <result property="phoneNumber" column="PHONE_NUMBER"/>
+        <result property="haveReport" column="HAVE_REPORT"/>
+        <result property="regCapital" column="REG_CAPITAL"/>
+        <result property="name" column="NAME"/>
+        <result property="regLocation" column="REG_LOCATION"/>
+        <result property="businessExpertise" column="BUSINESS_EXPERTISE"/>
+        <result property="logo" column="LOGO"/>
+        <result property="taxNumber" column="TAX_NUMBER"/>
+        <result property="headquartersBranch" column="HEADQUARTERS_BRANCH"/>
+        <result property="dateOfEstablishment" column="DATE_OF_ESTABLISHMENT"/>
+        <result property="legalPersonName" column="LEGAL_PERSON_NAME"/>
+        <result property="creditRating" column="CREDIT_RATING"/>
+        <result property="websiteList" column="WEBSITE_LIST"/>
+        <result property="practiceState" column="PRACTICE_STATE"/>
+        <result property="authorities" column="AUTHORITIES"/>
+        <result property="email" column="EMAIL"/>
+        <result property="approvalDate" column="APPROVAL_DATE"/>
+        <result property="uuid" column="UUID"/>
+        <result property="dateOfIssue" column="DATE_OF_ISSUE"/>
+        <result property="weibo" column="WEIBO"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+
+</mapper>

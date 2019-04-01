@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntAbnormalInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntAbnormalInfoEntity" id="entAbnormalInfoMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="abnormalCreateTime" column="ABNORMAL_CREATE_TIME"/>
+        <result property="putDate" column="PUT_DATE"/>
+        <result property="removeDate" column="REMOVE_DATE"/>
+        <result property="removeDepartment" column="REMOVE_DEPARTMENT"/>
+        <result property="removeReason" column="REMOVE_REASON"/>
+        <result property="putReason" column="PUT_REASON"/>
+        <result property="putDepartment" column="PUT_DEPARTMENT"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntAbnormalInfoEntity">
+        insert into ENT_ABNORMAL_INFO(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    ABNORMAL_CREATE_TIME,
+						    PUT_DATE,
+						    REMOVE_DATE,
+						    REMOVE_DEPARTMENT,
+						    REMOVE_REASON,
+						    PUT_REASON,
+						    PUT_DEPARTMENT,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.abnormalCreateTime},
+	            #{item.putDate},
+	            #{item.removeDate},
+	            #{item.removeDepartment},
+	            #{item.removeReason},
+	            #{item.putReason},
+	            #{item.putDepartment},
+            sysdate,
+            sysdate,
+            1
+	     )
+        </foreach>
+    </insert>
+</mapper>

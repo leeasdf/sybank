@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntBaseInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntBaseInfoEntity" id="entBaseInfoMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="tycId" column="TYC_ID"/>
+        <result property="name" column="NAME"/>
+        <result property="legalPersonId" column="LEGAL_PERSON_ID"/>
+        <result property="legalPersonName" column="LEGAL_PERSON_NAME"/>
+        <result property="orgNumber" column="ORG_NUMBER"/>
+        <result property="taxNumber" column="TAX_NUMBER"/>
+        <result property="regNumber" column="REG_NUMBER"/>
+        <result property="regCapital" column="REG_CAPITAL"/>
+        <result property="regCapitalCurrency" column="REG_CAPITAL_CURRENCY"/>
+        <result property="actualCapital" column="ACTUAL_CAPITAL"/>
+        <result property="actualCapitalCurrency" column="ACTUAL_CAPITAL_CURRENCY"/>
+        <result property="companyOrgType" column="COMPANY_ORG_TYPE"/>
+        <result property="regInstitute" column="REG_INSTITUTE"/>
+        <result property="regLocation" column="REG_LOCATION"/>
+        <result property="regStatus" column="REG_STATUS"/>
+        <result property="estiblishTime" column="ESTIBLISH_TIME"/>
+        <result property="fromTime" column="FROM_TIME"/>
+        <result property="toTime" column="TO_TIME"/>
+        <result property="industry" column="INDUSTRY"/>
+        <result property="alias" column="ALIAS"/>
+        <result property="base" column="BASE"/>
+        <result property="approvedTime" column="APPROVED_TIME"/>
+        <result property="tycUpdateTime" column="TYC_UPDATE_TIME"/>
+        <result property="socialStaffNum" column="SOCIAL_STAFF_NUM"/>
+        <result property="staffNumRange" column="STAFF_NUM_RANGE"/>
+        <result property="businessScope" column="BUSINESS_SCOPE"/>
+        <result property="type" column="TYPE"/>
+        <result property="categoryScore" column="CATEGORY_SCORE"/>
+        <result property="percentileScore" column="PERCENTILE_SCORE"/>
+        <result property="bondName" column="BOND_NAME"/>
+        <result property="usedBondName" column="USED_BOND_NAME"/>
+        <result property="bondType" column="BOND_TYPE"/>
+        <result property="bondNum" column="BOND_NUM"/>
+        <result property="listedFlag" column="LISTED_FLAG"/>
+        <result property="tags" column="TAGS"/>
+        <result property="logo" column="LOGO"/>
+        <result property="sourceFlag" column="SOURCE_FLAG"/>
+        <result property="flag" column="FLAG"/>
+        <result property="correctCompanyId" column="CORRECT_COMPANY_ID"/>
+        <result property="email" column="EMAIL"/>
+        <result property="websiteList" column="WEBSITE_LIST"/>
+        <result property="phoneNumber" column="PHONE_NUMBER"/>
+        <result property="updateTimes" column="UPDATE_TIMES"/>
+        <result property="companyType" column="COMPANY_TYPE"/>
+        <result property="companyId" column="COMPANY_ID"/>
+        <result property="historyNames" column="HISTORY_NAMES"/>
+        <result property="isMicroEnt" column="IS_MICRO_ENT"/>
+        <result property="orgApprovedInstitute" column="ORG_APPROVED_INSTITUTE"/>
+        <result property="nameSuffix" column="NAME_SUFFIX"/>
+        <result property="property3" column="PROPERTY3"/>
+        <result property="property4" column="PROPERTY4"/>
+        <result property="property5" column="PROPERTY5"/>
+        <result property="listCode" column="LIST_CODE"/>
+        <result property="ownershipStake" column="OWNERSHIP_STAKE"/>
+        <result property="revokeDate" column="REVOKE_DATE"/>
+        <result property="revokeReason" column="REVOKE_REASON"/>
+        <result property="cancelDate" column="CANCEL_DATE"/>
+        <result property="cancelReason" column="CANCEL_REASON"/>
+        <result property="isClaimed" column="IS_CLAIMED"/>
+        <result property="phoneList" column="PHONE_LIST"/>
+        <result property="portray" column="PORTRAY"/>
+        <result property="emailList" column="EMAIL_LIST"/>
+        <result property="isHightTech" column="IS_HIGHT_TECH"/>
+        <result property="haveReport" column="HAVE_REPORT"/>
+        <result property="regLong" column="REG_LONG"/>
+        <result property="phoneLong" column="PHONE_LONG"/>
+        <result property="taxLong" column="TAX_LONG"/>
+        <result property="equityUrl" column="EQUITY_URL"/>
+        <result property="orgLong" column="ORG_LONG"/>
+        <result property="baseInfo" column="BASE_INFO"/>
+        <result property="weibo" column="WEIBO"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntBaseInfoEntity">
+        insert into ENT_BASE_INFO(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    TYC_ID,
+						    NAME,
+						    LEGAL_PERSON_ID,
+						    LEGAL_PERSON_NAME,
+						    ORG_NUMBER,
+						    TAX_NUMBER,
+						    REG_NUMBER,
+						    REG_CAPITAL,
+						    REG_CAPITAL_CURRENCY,
+						    ACTUAL_CAPITAL,
+						    ACTUAL_CAPITAL_CURRENCY,
+						    COMPANY_ORG_TYPE,
+						    REG_INSTITUTE,
+						    REG_LOCATION,
+						    REG_STATUS,
+						    ESTIBLISH_TIME,
+						    FROM_TIME,
+						    TO_TIME,
+						    INDUSTRY,
+						    ALIAS,
+						    BASE,
+						    APPROVED_TIME,
+						    TYC_UPDATE_TIME,
+						    SOCIAL_STAFF_NUM,
+						    STAFF_NUM_RANGE,
+						    BUSINESS_SCOPE,
+						    TYPE,
+						    CATEGORY_SCORE,
+						    PERCENTILE_SCORE,
+						    BOND_NAME,
+						    USED_BOND_NAME,
+						    BOND_TYPE,
+						    BOND_NUM,
+						    LISTED_FLAG,
+						    TAGS,
+						    LOGO,
+						    SOURCE_FLAG,
+						    FLAG,
+						    CORRECT_COMPANY_ID,
+						    EMAIL,
+						    WEBSITE_LIST,
+						    PHONE_NUMBER,
+						    UPDATE_TIMES,
+						    COMPANY_TYPE,
+						    COMPANY_ID,
+						    HISTORY_NAMES,
+						    IS_MICRO_ENT,
+						    ORG_APPROVED_INSTITUTE,
+						    NAME_SUFFIX,
+						    PROPERTY3,
+						    PROPERTY4,
+						    PROPERTY5,
+						    LIST_CODE,
+						    OWNERSHIP_STAKE,
+						    REVOKE_DATE,
+						    REVOKE_REASON,
+						    CANCEL_DATE,
+						    CANCEL_REASON,
+						    IS_CLAIMED,
+						    PHONE_LIST,
+						    PORTRAY,
+						    EMAIL_LIST,
+						    IS_HIGHT_TECH,
+						    HAVE_REPORT,
+						    REG_LONG,
+						    PHONE_LONG,
+						    TAX_LONG,
+						    EQUITY_URL,
+						    ORG_LONG,
+						    BASE_INFO,
+						    WEIBO,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS,
+						    VERSION
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.tycId},
+	            #{item.name},
+	            #{item.legalPersonId},
+	            #{item.legalPersonName},
+	            #{item.orgNumber},
+	            #{item.taxNumber},
+	            #{item.regNumber},
+	            #{item.regCapital},
+	            #{item.regCapitalCurrency},
+	            #{item.actualCapital},
+	            #{item.actualCapitalCurrency},
+	            #{item.companyOrgType},
+	            #{item.regInstitute},
+	            #{item.regLocation},
+	            #{item.regStatus},
+	            #{item.estiblishTime},
+	            #{item.fromTime},
+	            #{item.toTime},
+	            #{item.industry},
+	            #{item.alias},
+	            #{item.base},
+	            #{item.approvedTime},
+	            #{item.tycUpdateTime},
+	            #{item.socialStaffNum},
+	            #{item.staffNumRange},
+	            #{item.businessScope},
+	            #{item.type},
+	            #{item.categoryScore},
+	            #{item.percentileScore},
+	            #{item.bondName},
+	            #{item.usedBondName},
+	            #{item.bondType},
+	            #{item.bondNum},
+	            #{item.listedFlag},
+	            #{item.tags},
+	            #{item.logo},
+	            #{item.sourceFlag},
+	            #{item.flag},
+	            #{item.correctCompanyId},
+	            #{item.email},
+	            #{item.websiteList},
+	            #{item.phoneNumber},
+	            #{item.updateTimes},
+	            #{item.companyType},
+	            #{item.companyId},
+	            #{item.historyNames},
+	            #{item.isMicroEnt},
+	            #{item.orgApprovedInstitute},
+	            #{item.nameSuffix},
+	            #{item.property3},
+	            #{item.property4},
+	            #{item.property5},
+	            #{item.listCode},
+	            #{item.ownershipStake},
+	            #{item.revokeDate},
+	            #{item.revokeReason},
+	            #{item.cancelDate},
+	            #{item.cancelReason},
+	            #{item.isClaimed},
+	            #{item.phoneList},
+	            #{item.portray},
+	            #{item.emailList},
+	            #{item.isHightTech},
+	            #{item.haveReport},
+	            #{item.regLong},
+	            #{item.phoneLong},
+	            #{item.taxLong},
+	            #{item.equityUrl},
+	            #{item.orgLong},
+	            #{item.baseInfo},
+	            #{item.weibo},
+	            sysdate,
+	            sysdate,
+	            1,
+	            0
+	     )
+        </foreach>
+    </insert>
+</mapper>

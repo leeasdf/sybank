@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntMortgageBaseInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntMortgageBaseInfoEntity" id="entMortgageBaseInfoMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="overviewAmount" column="OVERVIEW_AMOUNT"/>
+        <result property="scope" column="SCOPE"/>
+        <result property="tmStatus" column="TM_STATUS"/>
+        <result property="remark" column="REMARK"/>
+        <result property="regDate" column="REG_DATE"/>
+        <result property="overviewType" column="OVERVIEW_TYPE"/>
+        <result property="type" column="TYPE"/>
+        <result property="cancelReason" column="CANCEL_REASON"/>
+        <result property="overviewScope" column="OVERVIEW_SCOPE"/>
+        <result property="tableId" column="TABLE_ID"/>
+        <result property="amount" column="AMOUNT"/>
+        <result property="overviewRemark" column="OVERVIEW_REMARK"/>
+        <result property="overviewTerm" column="OVERVIEW_TERM"/>
+        <result property="regDepartment" column="REG_DEPARTMENT"/>
+        <result property="regNum" column="REG_NUM"/>
+        <result property="term" column="TERM"/>
+        <result property="base" column="BASE"/>
+        <result property="cancelDate" column="CANCEL_DATE"/>
+        <result property="publishDate" column="PUBLISH_DATE"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntMortgageBaseInfoEntity">
+        insert into ENT_MORTGAGE_BASE_INFO(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    OVERVIEW_AMOUNT,
+						    SCOPE,
+						    TM_STATUS,
+						    REMARK,
+						    REG_DATE,
+						    OVERVIEW_TYPE,
+						    TYPE,
+						    CANCEL_REASON,
+						    OVERVIEW_SCOPE,
+						    TABLE_ID,
+						    AMOUNT,
+						    OVERVIEW_REMARK,
+						    OVERVIEW_TERM,
+						    REG_DEPARTMENT,
+						    REG_NUM,
+						    TERM,
+						    BASE,
+						    CANCEL_DATE,
+						    PUBLISH_DATE,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS,
+						    VERSION
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.overviewAmount},
+	            #{item.scope},
+	            #{item.tmStatus},
+	            #{item.remark},
+	            #{item.regDate},
+	            #{item.overviewType},
+	            #{item.type},
+	            #{item.cancelReason},
+	            #{item.overviewScope},
+	            #{item.tableId},
+	            #{item.amount},
+	            #{item.overviewRemark},
+	            #{item.overviewTerm},
+	            #{item.regDepartment},
+	            #{item.regNum},
+	            #{item.term},
+	            #{item.base},
+	            #{item.cancelDate},
+	            #{item.publishDate},
+	            sysdate,
+	            sysdate,
+	            1,
+	            0
+	     )
+        </foreach>
+    </insert>
+</mapper>

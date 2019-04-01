@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntOwnTaxDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntOwnTaxEntity" id="entOwnTaxMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="regType" column="REG_TYPE"/>
+        <result property="personIdNumber" column="PERSON_ID_NUMBER"/>
+        <result property="legalpersonName" column="LEGALPERSON_NAME"/>
+        <result property="location" column="LOCATION"/>
+        <result property="ownTaxAmount" column="OWN_TAX_AMOUNT"/>
+        <result property="department" column="DEPARTMENT"/>
+        <result property="taxIdNumber" column="TAX_ID_NUMBER"/>
+        <result property="type" column="TYPE"/>
+        <result property="taxCategory" column="TAX_CATEGORY"/>
+        <result property="taxpayerType" column="TAXPAYER_TYPE"/>
+        <result property="newOwnTaxBalance" column="NEW_OWN_TAX_BALANCE"/>
+        <result property="ownTaxBalance" column="OWN_TAX_BALANCE"/>
+        <result property="name" column="NAME"/>
+        <result property="personIdName" column="PERSON_ID_NAME"/>
+        <result property="publishDate" column="PUBLISH_DATE"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntOwnTaxEntity">
+        insert into ENT_OWN_TAX(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    REG_TYPE,
+						    PERSON_ID_NUMBER,
+						    LEGALPERSON_NAME,
+						    LOCATION,
+						    OWN_TAX_AMOUNT,
+						    DEPARTMENT,
+						    TAX_ID_NUMBER,
+						    TYPE,
+						    TAX_CATEGORY,
+						    TAXPAYER_TYPE,
+						    NEW_OWN_TAX_BALANCE,
+						    OWN_TAX_BALANCE,
+						    NAME,
+						    PERSON_ID_NAME,
+						    PUBLISH_DATE,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS,
+						    VERSION
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.regType},
+	            #{item.personIdNumber},
+	            #{item.legalpersonName},
+	            #{item.location},
+	            #{item.ownTaxAmount},
+	            #{item.department},
+	            #{item.taxIdNumber},
+	            #{item.type},
+	            #{item.taxCategory},
+	            #{item.taxpayerType},
+	            #{item.newOwnTaxBalance},
+	            #{item.ownTaxBalance},
+	            #{item.name},
+	            #{item.personIdName},
+	            #{item.publishDate},
+	            sysdate,
+	            sysdate,
+	            1,
+	            0
+	     )
+        </foreach>
+    </insert>
+</mapper>

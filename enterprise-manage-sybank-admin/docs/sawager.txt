@@ -1,0 +1,6 @@
+生成离线pdf
+按照下面链接文章来配置生成的
+https://www.jianshu.com/p/033d650164c4
+页面另存为同目录下的文档 --> SpringBoot2基于Swagger2生成离线Api文档 .pdf
+
+由于版本等原因pom.xml没有提交

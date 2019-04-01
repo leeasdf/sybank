@@ -1,0 +1,105 @@
+{
+  "data": {
+    "result": {
+      "regStatus": "存续",
+      "flag": 1,
+      "regCapital": "200万美元",
+      "staffNumRange": "10000人以上",
+      "industry": "软件和信息技术服务业",
+      "type": 1,
+      "staffList": {
+        "result": [
+          {
+            "toco": 5,
+            "name": "卢山",
+            "id": 1826551647,
+            "type": 2,
+            "typeJoin": [
+              "董事"
+            ]
+          },
+          {
+            "toco": 45,
+            "name": "周昭钦",
+            "id": 1855288082,
+            "type": 2,
+            "typeJoin": [
+              "监事"
+            ]
+          },
+          {
+            "toco": 17,
+            "name": "马化腾",
+            "logo": "http://img.tianyancha.com/logo/human/2/803dc6295fccfad7a7dfb185efac5e4c.png@!z_200x200",
+            "id": 2277807374,
+            "type": 2,
+            "typeJoin": [
+              "总经理",
+              "董事长"
+            ]
+          },
+          {
+            "toco": 12,
+            "name": "奚丹",
+            "logo": "http://img.tianyancha.com/logo/human/2/bd00dd10cac7610be13e9fc9e77fd11b.png@!z_200x200",
+            "id": 1868933287,
+            "type": 2,
+            "typeJoin": [
+              "董事"
+            ]
+          },
+          {
+            "toco": 1,
+            "name": "SEARLE,CHARLES ST.LEGER",
+            "id": 1753475313,
+            "type": 2,
+            "typeJoin": [
+              "董事"
+            ]
+          }
+        ],
+        "total": 5
+      },
+      "updateTimes": 1551250717000,
+      "legalPersonName": "马化腾",
+      "regNumber": "440301503270924",
+      "property4": "44030171526726X",
+      "property3": "Tencent Technology(Shenzhen)Co.,Ltd.",
+      "creditCode": "9144030071526726XG",
+      "fromTime": 951321600000,
+      "approvedTime": 1544716800000,
+      "socialStaffNum": 13120,
+      "logo": "http://img.tianyancha.com/logo/lll/c3e47e7950075cd6d4b3338416a0fea3.png@!f_200x200",
+      "alias": "腾讯科技",
+      "companyOrgType": "有限责任公司(台港澳法人独资)",
+      "id": 150041670,
+      "orgNumber": "71526726X",
+      "isClaimed": 0,
+      "sourceFlag": "http://qyxy.baic.gov.cn/",
+      "correctCompanyId": "",
+      "email": "landyzhang@tencent.com",
+      "actualCapital": "200万美元",
+      "estiblishTime": 951321600000,
+      "regInstitute": "南山局",
+      "companyType": 201,
+      "taxNumber": "9144030071526726XG",
+      "businessScope": "^从事计算机软硬件的技术开发、销售自行开发的软件；计算机技术服务及信息服务；计算机硬件的研发、批发；玩具设计开发；玩具的批发与零售（许可审批类商品除外）；商品的批发与零售（许可审批类商品除外）；动漫及衍生产品设计服务；电子产品设计服务。 （特许经营除外；以上项目不涉及外商投资准入特别管理措施；不涉及国营贸易管理商品；涉及配额、许可证管理商品的，按国家有关规定办理申请）。",
+      "regLocation": "深圳市南山区高新区科技中一路腾讯大厦35层",
+      "websiteList": "www.hudongcdn.com",
+      "legalPersonId": 2277807374,
+      "companyId": 2993437,
+      "phoneNumber": "0755-86013388",
+      "categoryScore": 8403,
+      "name": "腾讯科技（深圳）有限公司",
+      "percentileScore": 9850,
+      "updatetime": 1551250719592,
+      "isMicroEnt": 0,
+      "base": "gd"
+    },
+    "invokeType": "0"
+  },
+  "seqNum": "d71485b4a7244a4fb040cf4519b1d5ee",
+  "bizCode": "",
+  "message": "查询成功",
+  "status": 10
+}

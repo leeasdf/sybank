@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.SysTaskResultDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.SysTaskResultEntity" id="sysTaskResultMap">
+        <result property="id" column="id"/>
+        <result property="interfaceType" column="INTERFACE_TYPE"/>
+        <result property="count" column="COUNT"/>
+        <result property="sucessCount" column="SUCESS_COUNT"/>
+        <result property="errorCount" column="ERROR_COUNT"/>
+        <result property="unknownCount" column="UNKNOWN_COUNT"/>
+        <result property="errorEntId" column="ERROR_ENT_ID"/>
+        <result property="unknownEntId" column="UNKNOWN_ENT_ID"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+
+</mapper>

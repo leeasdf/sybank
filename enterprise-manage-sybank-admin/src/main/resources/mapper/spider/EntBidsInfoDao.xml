@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntBidsInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntBidsInfoEntity" id="entBidsInfoMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="purchaser" column="PURCHASER"/>
+        <result property="publishTime" column="PUBLISH_TIME"/>
+        <result property="link" column="LINK"/>
+        <result property="pid" column="PID"/>
+        <result property="searchType" column="SEARCH_TYPE"/>
+        <result property="uni" column="UNI"/>
+        <result property="bidUrl" column="BID_URL"/>
+        <result property="intro" column="INTRO"/>
+        <result property="content" column="CONTENT"/>
+        <result property="uniqueHash" column="UNIQUE_HASH"/>
+        <result property="tableId" column="TABLE_ID"/>
+        <result property="type" column="TYPE"/>
+        <result property="title" column="TITLE"/>
+        <result property="recordHash" column="RECORD_HASH"/>
+        <result property="abs" column="ABS"/>
+        <result property="connList" column="CONN_LIST"/>
+        <result property="proxy" column="PROXY"/>
+        <result property="eventTime" column="EVENT_TIME"/>
+        <result property="uuid" column="UUID"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntBidsInfoEntity">
+        insert into ENT_BIDS_INFO(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    PURCHASER,
+						    PUBLISH_TIME,
+						    LINK,
+						    PID,
+						    SEARCH_TYPE,
+						    UNI,
+						    BID_URL,
+						    INTRO,
+						    CONTENT,
+						    UNIQUE_HASH,
+						    TABLE_ID,
+						    TYPE,
+						    TITLE,
+						    RECORD_HASH,
+						    ABS,
+						    CONN_LIST,
+						    PROXY,
+						    EVENT_TIME,
+						    UUID,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS,
+						    VERSION
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.purchaser},
+	            #{item.publishTime},
+	            #{item.link},
+	            #{item.pid},
+	            #{item.searchType},
+	            #{item.uni},
+	            #{item.bidUrl},
+	            #{item.intro},
+	            #{item.content},
+	            #{item.uniqueHash},
+	            #{item.tableId},
+	            #{item.type},
+	            #{item.title},
+	            #{item.recordHash},
+	            #{item.abs},
+	            #{item.connList},
+	            #{item.proxy},
+	            #{item.eventTime},
+	            #{item.uuid},
+	            sysdate,
+	            sysdate,
+	            1,
+	            0
+	     )
+        </foreach>
+    </insert>
+</mapper>

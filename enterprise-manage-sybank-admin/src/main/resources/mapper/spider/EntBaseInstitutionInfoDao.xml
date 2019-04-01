@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntBaseInstitutionInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntBaseInstitutionInfoEntity" id="entBaseInstitutionInfoMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="scope" column="SCOPE"/>
+        <result property="regUnitNameSecond" column="REG_UNIT_NAME_SECOND"/>
+        <result property="regUnitName" column="REG_UNIT_NAME"/>
+        <result property="entityType" column="ENTITY_TYPE"/>
+        <result property="type" column="TYPE"/>
+        <result property="tycId" column="TYC_ID"/>
+        <result property="haveReport" column="HAVE_REPORT"/>
+        <result property="regCapital" column="REG_CAPITAL"/>
+        <result property="name" column="NAME"/>
+        <result property="regUnitNameThird" column="REG_UNIT_NAME_THIRD"/>
+        <result property="regLocation" column="REG_LOCATION"/>
+        <result property="nameSecond" column="NAME_SECOND"/>
+        <result property="regUnit" column="REG_UNIT"/>
+        <result property="expendSource" column="EXPEND_SOURCE"/>
+        <result property="nameThird" column="NAME_THIRD"/>
+        <result property="logo" column="LOGO"/>
+        <result property="usCreditCode" column="US_CREDIT_CODE"/>
+        <result property="regStatus" column="REG_STATUS"/>
+        <result property="legalPersonName" column="LEGAL_PERSON_NAME"/>
+        <result property="regUnitNameOther" column="REG_UNIT_NAME_OTHER"/>
+        <result property="legalPersonId" column="LEGAL_PERSON_ID"/>
+        <result property="address" column="ADDRESS"/>
+        <result property="holdUnit" column="HOLD_UNIT"/>
+        <result property="validTime" column="VALID_TIME"/>
+        <result property="base" column="BASE"/>
+        <result property="oldCert" column="OLD_CERT"/>
+        <result property="nameOther" column="NAME_OTHER"/>
+        <result property="weibo" column="WEIBO"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+
+</mapper>

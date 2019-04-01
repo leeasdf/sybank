@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntZhixingInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntZhixingInfoEntity" id="entZhixingInfoMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="caseCode" column="CASE_CODE"/>
+        <result property="execCourtName" column="EXEC_COURT_NAME"/>
+        <result property="pname" column="PNAME"/>
+        <result property="partyCardNum" column="PARTY_CARD_NUM"/>
+        <result property="caseCreateTime" column="CASE_CREATE_TIME"/>
+        <result property="execMoney" column="EXEC_MONEY"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntZhixingInfoEntity">
+        insert into ENT_ZHIXING_INFO(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    CASE_CODE,
+						    EXEC_COURT_NAME,
+						    PNAME,
+						    PARTY_CARD_NUM,
+						    CASE_CREATE_TIME,
+						    EXEC_MONEY,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS,
+						    VERSION
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.caseCode},
+	            #{item.execCourtName},
+	            #{item.pname},
+	            #{item.partyCardNum},
+	            #{item.caseCreateTime},
+                #{item.execMoney},
+                sysdate,
+                sysdate,
+                1,
+                0
+	     )
+        </foreach>
+    </insert>
+</mapper>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntCourtAnnounceInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntCourtAnnounceInfoEntity" id="entCourtAnnounceInfoMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="tableId" column="TABLE_ID"/>
+        <result property="announceId" column="ANNOUNCE_ID"/>
+        <result property="bltnno" column="BLTNNO"/>
+        <result property="bltnstate" column="BLTNSTATE"/>
+        <result property="bltntype" column="BLTNTYPE"/>
+        <result property="bltntypename" column="BLTNTYPENAME"/>
+        <result property="caseno" column="CASENO"/>
+        <result property="content" column="CONTENT"/>
+        <result property="courtflag" column="COURTFLAG"/>
+        <result property="courtcode" column="COURTCODE"/>
+        <result property="customno" column="CUSTOMNO"/>
+        <result property="dealgrade" column="DEALGRADE"/>
+        <result property="dealgradename" column="DEALGRADENAME"/>
+        <result property="judge" column="JUDGE"/>
+        <result property="judgephone" column="JUDGEPHONE"/>
+        <result property="mobilephone" column="MOBILEPHONE"/>
+        <result property="party1" column="PARTY1"/>
+        <result property="party2" column="PARTY2"/>
+        <result property="party1Str" column="PARTY1_STR"/>
+        <result property="party2Str" column="PARTY2_STR"/>
+        <result property="province" column="PROVINCE"/>
+        <result property="publishdate" column="PUBLISHDATE"/>
+        <result property="publishpage" column="PUBLISHPAGE"/>
+        <result property="reason" column="REASON"/>
+        <result property="showtxtdate" column="SHOWTXTDATE"/>
+        <result property="tmpsaversn" column="TMPSAVERSN"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntCourtAnnounceInfoEntity">
+        insert into ENT_COURT_ANNOUNCE_INFO(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    TABLE_ID,
+						    ANNOUNCE_ID,
+						    BLTNNO,
+						    BLTNSTATE,
+						    BLTNTYPE,
+						    BLTNTYPENAME,
+						    CASENO,
+						    CONTENT,
+						    COURTFLAG,
+						    COURTCODE,
+						    CUSTOMNO,
+						    DEALGRADE,
+						    DEALGRADENAME,
+						    JUDGE,
+						    JUDGEPHONE,
+						    MOBILEPHONE,
+						    PARTY1,
+						    PARTY2,
+						    PARTY1_STR,
+						    PARTY2_STR,
+						    PROVINCE,
+						    PUBLISHDATE,
+						    PUBLISHPAGE,
+						    REASON,
+						    SHOWTXTDATE,
+						    TMPSAVERSN,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS,
+						    VERSION
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.tableId},
+	            #{item.announceId},
+	            #{item.bltnno},
+	            #{item.bltnstate},
+	            #{item.bltntype},
+	            #{item.bltntypename},
+	            #{item.caseno},
+	            #{item.content},
+	            #{item.courtflag},
+	            #{item.courtcode},
+	            #{item.customno},
+	            #{item.dealgrade},
+	            #{item.dealgradename},
+	            #{item.judge},
+	            #{item.judgephone},
+	            #{item.mobilephone},
+	            #{item.party1},
+	            #{item.party2},
+	            #{item.party1Str},
+	            #{item.party2Str},
+	            #{item.province},
+	            #{item.publishdate},
+	            #{item.publishpage},
+	            #{item.reason},
+	            #{item.showtxtdate},
+	            #{item.tmpsaversn},
+	            sysdate,
+	            sysdate,
+	            1,
+	            0
+	     )
+        </foreach>
+    </insert>
+</mapper>

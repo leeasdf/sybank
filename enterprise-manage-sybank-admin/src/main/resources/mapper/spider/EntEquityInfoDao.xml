@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntEquityInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntEquityInfoEntity" id="entEquityInfoMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="equityAmount" column="EQUITY_AMOUNT"/>
+        <result property="regNumber" column="REG_NUMBER"/>
+        <result property="pledgee" column="PLEDGEE"/>
+        <result property="putDate" column="PUT_DATE"/>
+        <result property="pledgorStr" column="PLEDGOR_STR"/>
+        <result property="regDate" column="REG_DATE"/>
+        <result property="state" column="STATE"/>
+        <result property="pledgor" column="PLEDGOR"/>
+        <result property="certifNumberR" column="CERTIF_NUMBER_R"/>
+        <result property="certifNumber" column="CERTIF_NUMBER"/>
+        <result property="pledgeeStr" column="PLEDGEE_STR"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntEquityInfoEntity">
+        insert into ENT_EQUITY_INFO(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    EQUITY_AMOUNT,
+						    REG_NUMBER,
+						    PLEDGEE,
+						    PUT_DATE,
+						    PLEDGOR_STR,
+						    REG_DATE,
+						    STATE,
+						    PLEDGOR,
+						    CERTIF_NUMBER_R,
+						    CERTIF_NUMBER,
+						    PLEDGEE_STR,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS,
+						    VERSION
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.equityAmount},
+	            #{item.regNumber},
+	            #{item.pledgee},
+	            #{item.putDate},
+	            #{item.pledgorStr},
+	            #{item.regDate},
+	            #{item.state},
+	            #{item.pledgor},
+	            #{item.certifNumberR},
+	            #{item.certifNumber},
+	            #{item.pledgeeStr},
+	            sysdate,
+	            sysdate,
+	            1,
+	            0
+	     )
+        </foreach>
+    </insert>
+</mapper>

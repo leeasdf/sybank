@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntEmployInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntEmployInfoEntity" id="entEmployInfoMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="education" column="EDUCATION"/>
+        <result property="jobFirstClass" column="JOB_FIRST_CLASS"/>
+        <result property="city" column="CITY"/>
+        <result property="companyName" column="COMPANY_NAME"/>
+        <result property="description" column="DESCRIPTION"/>
+        <result property="companyNameMws" column="COMPANY_NAME_MWS"/>
+        <result property="source" column="SOURCE"/>
+        <result property="title" column="TITLE"/>
+        <result property="experience" column="EXPERIENCE"/>
+        <result property="startdate" column="STARTDATE"/>
+        <result property="companyLng" column="COMPANY_LNG"/>
+        <result property="paramRegStatus" column="PARAM_REG_STATUS"/>
+        <result property="eventTime" column="EVENT_TIME"/>
+        <result property="tableId" column="TABLE_ID"/>
+        <result property="companyLat" column="COMPANY_LAT"/>
+        <result property="oriSalary" column="ORI_SALARY"/>
+        <result property="stablishTimeLong" column="STABLISH_TIME_LONG"/>
+        <result property="employClass" column="EMPLOY_CLASS"/>
+        <result property="companyCity" column="COMPANY_CITY"/>
+        <result property="searchType" column="SEARCH_TYPE"/>
+        <result property="type" column="TYPE"/>
+        <result property="categoryCode" column="CATEGORY_CODE"/>
+        <result property="urlPath" column="URL_PATH"/>
+        <result property="employerNumber" column="EMPLOYER_NUMBER"/>
+        <result property="categoryCodeNew" column="CATEGORY_CODE_NEW"/>
+        <result property="uni" column="UNI"/>
+        <result property="companyId" column="COMPANY_ID"/>
+        <result property="deleted" column="DELETED"/>
+        <result property="paramRegCapital" column="PARAM_REG_CAPITAL"/>
+        <result property="enddate" column="ENDDATE"/>
+        <result property="paramRegYear" column="PARAM_REG_YEAR"/>
+        <result property="employCreateTime" column="EMPLOY_CREATE_TIME"/>
+        <result property="fromUrl" column="FROM_URL"/>
+        <result property="district" column="DISTRICT"/>
+        <result property="location" column="LOCATION"/>
+        <result property="base" column="BASE"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntEmployInfoEntity">
+        insert into ENT_EMPLOY_INFO(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    EDUCATION,
+						    JOB_FIRST_CLASS,
+						    CITY,
+						    COMPANY_NAME,
+						    DESCRIPTION,
+						    COMPANY_NAME_MWS,
+						    SOURCE,
+						    TITLE,
+						    EXPERIENCE,
+						    STARTDATE,
+						    COMPANY_LNG,
+						    PARAM_REG_STATUS,
+						    EVENT_TIME,
+						    TABLE_ID,
+						    COMPANY_LAT,
+						    ORI_SALARY,
+						    STABLISH_TIME_LONG,
+						    EMPLOY_CLASS,
+						    COMPANY_CITY,
+						    SEARCH_TYPE,
+						    TYPE,
+						    CATEGORY_CODE,
+						    URL_PATH,
+						    EMPLOYER_NUMBER,
+						    CATEGORY_CODE_NEW,
+						    UNI,
+						    COMPANY_ID,
+						    DELETED,
+						    PARAM_REG_CAPITAL,
+						    ENDDATE,
+						    PARAM_REG_YEAR,
+						    EMPLOY_CREATE_TIME,
+						    FROM_URL,
+						    DISTRICT,
+						    LOCATION,
+						    BASE,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS,
+						    VERSION
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.education},
+	            #{item.jobFirstClass},
+	            #{item.city},
+	            #{item.companyName},
+	            #{item.description},
+	            #{item.companyNameMws},
+	            #{item.source},
+	            #{item.title},
+	            #{item.experience},
+	            #{item.startdate},
+	            #{item.companyLng},
+	            #{item.paramRegStatus},
+	            #{item.eventTime},
+	            #{item.tableId},
+	            #{item.companyLat},
+	            #{item.oriSalary},
+	            #{item.stablishTimeLong},
+	            #{item.employClass},
+	            #{item.companyCity},
+	            #{item.searchType},
+	            #{item.type},
+	            #{item.categoryCode},
+	            #{item.urlPath},
+	            #{item.employerNumber},
+	            #{item.categoryCodeNew},
+	            #{item.uni},
+	            #{item.companyId},
+	            #{item.deleted},
+	            #{item.paramRegCapital},
+	            #{item.enddate},
+	            #{item.paramRegYear},
+	            #{item.employCreateTime},
+	            #{item.fromUrl},
+	            #{item.district},
+	            #{item.location},
+	            #{item.base},
+	            sysdate,
+	            sysdate,
+	            1,
+	            0
+	     )
+        </foreach>
+    </insert>
+</mapper>

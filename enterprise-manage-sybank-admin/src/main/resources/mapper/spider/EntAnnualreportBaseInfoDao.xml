@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntAnnualreportBaseInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntAnnualreportBaseInfoEntity" id="entAnnualreportBaseInfoMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="belongYear" column="BELONG_YEAR"/>
+        <result property="reportYear" column="REPORT_YEAR"/>
+        <result property="companyName" column="COMPANY_NAME"/>
+        <result property="annualreportCreditCode" column="ANNUALREPORT_CREDIT_CODE"/>
+        <result property="regNumber" column="REG_NUMBER"/>
+        <result property="phoneNumber" column="PHONE_NUMBER"/>
+        <result property="postcode" column="POSTCODE"/>
+        <result property="postalAddress" column="POSTAL_ADDRESS"/>
+        <result property="email" column="EMAIL"/>
+        <result property="manageState" column="MANAGE_STATE"/>
+        <result property="employeeNum" column="EMPLOYEE_NUM"/>
+        <result property="operatorName" column="OPERATOR_NAME"/>
+        <result property="totalAssets" column="TOTAL_ASSETS"/>
+        <result property="totalEquity" column="TOTAL_EQUITY"/>
+        <result property="totalSales" column="TOTAL_SALES"/>
+        <result property="totalProfit" column="TOTAL_PROFIT"/>
+        <result property="primeBusProfit" column="PRIME_BUS_PROFIT"/>
+        <result property="retainedProfit" column="RETAINED_PROFIT"/>
+        <result property="totalTax" column="TOTAL_TAX"/>
+        <result property="totalLiability" column="TOTAL_LIABILITY"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntAnnualreportBaseInfoEntity">
+        insert into ENT_ANNUALREPORT_BASE_INFO(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    BELONG_YEAR,
+						    REPORT_YEAR,
+						    COMPANY_NAME,
+						    ANNUALREPORT_CREDIT_CODE,
+						    REG_NUMBER,
+						    PHONE_NUMBER,
+						    POSTCODE,
+						    POSTAL_ADDRESS,
+						    EMAIL,
+						    MANAGE_STATE,
+						    EMPLOYEE_NUM,
+						    OPERATOR_NAME,
+						    TOTAL_ASSETS,
+						    TOTAL_EQUITY,
+						    TOTAL_SALES,
+						    TOTAL_PROFIT,
+						    PRIME_BUS_PROFIT,
+						    RETAINED_PROFIT,
+						    TOTAL_TAX,
+						    TOTAL_LIABILITY,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.belongYear},
+	            #{item.reportYear},
+	            #{item.companyName},
+	            #{item.annualreportCreditCode},
+	            #{item.regNumber},
+	            #{item.phoneNumber},
+	            #{item.postcode},
+	            #{item.postalAddress},
+	            #{item.email},
+	            #{item.manageState},
+	            #{item.employeeNum},
+	            #{item.operatorName},
+	            #{item.totalAssets},
+	            #{item.totalEquity},
+	            #{item.totalSales},
+	            #{item.totalProfit},
+	            #{item.primeBusProfit},
+	            #{item.retainedProfit},
+	            #{item.totalTax},
+	            #{item.totalLiability},
+	            sysdate,
+	            sysdate,
+	            1
+	     )
+        </foreach>
+    </insert>
+</mapper>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntReportChangeRecordDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntReportChangeRecordEntity" id="entReportChangeRecordMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="collectDate" column="COLLECT_DATE"/>
+        <result property="changeType" column="CHANGE_TYPE"/>
+        <result property="reportChangeType" column="REPORT_CHANGE_TYPE"/>
+        <result property="reportChangeDesc" column="REPORT_CHANGE_DESC"/>
+        <result property="warningLevel" column="WARNING_LEVEL"/>
+        <result property="remark" column="REMARK"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntReportChangeRecordEntity">
+        insert into ENT_REPORT_CHANGE_RECORD(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    COLLECT_DATE,
+						    CHANGE_TYPE,
+						    REPORT_CHANGE_TYPE,
+						    REPORT_CHANGE_DESC,
+						    WARNING_LEVEL,
+						    REMARK,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS,
+						    VERSION
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.collectDate},
+	            #{item.changeType},
+	            #{item.reportChangeType},
+	            #{item.reportChangeDesc},
+	            #{item.warningLevel},
+	            #{item.remark},
+	            sysdate,
+	            sysdate,
+	            1,
+	            0
+	     )
+        </foreach>
+    </insert>
+</mapper>

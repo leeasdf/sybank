@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntBaseFoundationInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntBaseFoundationInfoEntity" id="entBaseFoundationInfoMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="tycId" column="TYC_ID"/>
+        <result property="name" column="NAME"/>
+        <result property="preferentialQualificationType" column="PREFERENTIAL_QUALIFICATION_TYPE"/>
+        <result property="tycCreateTime" column="TYC_CREATE_TIME"/>
+        <result property="dataSource" column="DATA_SOURCE"/>
+        <result property="nationalWorkerNumber" column="NATIONAL_WORKER_NUMBER"/>
+        <result property="scope" column="SCOPE"/>
+        <result property="department" column="DEPARTMENT"/>
+        <result property="historyName" column="HISTORY_NAME"/>
+        <result property="purpose" column="PURPOSE"/>
+        <result property="type" column="TYPE"/>
+        <result property="entityType" column="ENTITY_TYPE"/>
+        <result property="contacts" column="CONTACTS"/>
+        <result property="haveReport" column="HAVE_REPORT"/>
+        <result property="regCapital" column="REG_CAPITAL"/>
+        <result property="orgCode" column="ORG_CODE"/>
+        <result property="establishTime" column="ESTABLISH_TIME"/>
+        <result property="regLocation" column="REG_LOCATION"/>
+        <result property="grade" column="GRADE"/>
+        <result property="specialFundNumber" column="SPECIAL_FUND_NUMBER"/>
+        <result property="logo" column="LOGO"/>
+        <result property="businessScope" column="BUSINESS_SCOPE"/>
+        <result property="fax" column="FAX"/>
+        <result property="website" column="WEBSITE"/>
+        <result property="estiblishTime" column="ESTIBLISH_TIME"/>
+        <result property="provinceWorkerNumber" column="PROVINCE_WORKER_NUMBER"/>
+        <result property="postcode" column="POSTCODE"/>
+        <result property="legalPersonName" column="LEGAL_PERSON_NAME"/>
+        <result property="contactDuty" column="CONTACT_DUTY"/>
+        <result property="legalPersonId" column="LEGAL_PERSON_ID"/>
+        <result property="secretary" column="SECRETARY"/>
+        <result property="field" column="FIELD"/>
+        <result property="englishName" column="ENGLISH_NAME"/>
+        <result property="businessUnit" column="BUSINESS_UNIT"/>
+        <result property="address" column="ADDRESS"/>
+        <result property="email" column="EMAIL"/>
+        <result property="volunteerNumber" column="VOLUNTEER_NUMBER"/>
+        <result property="employeeNumber" column="EMPLOYEE_NUMBER"/>
+        <result property="telephone" column="TELEPHONE"/>
+        <result property="weibo" column="WEIBO"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+
+</mapper>

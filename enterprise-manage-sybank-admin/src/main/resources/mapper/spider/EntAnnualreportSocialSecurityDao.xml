@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntAnnualreportSocialSecurityDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntAnnualreportSocialSecurityEntity" id="entAnnualreportSocialSecurityMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="belongYear" column="BELONG_YEAR"/>
+        <result property="tableId" column="TABLE_ID"/>
+        <result property="annaulreportId" column="ANNAULREPORT_ID"/>
+        <result property="endowmentInsurance" column="ENDOWMENT_INSURANCE"/>
+        <result property="unemploymentInsurance" column="UNEMPLOYMENT_INSURANCE"/>
+        <result property="medicalInsurance" column="MEDICAL_INSURANCE"/>
+        <result property="employmentInjuryInsurance" column="EMPLOYMENT_INJURY_INSURANCE"/>
+        <result property="maternityInsurance" column="MATERNITY_INSURANCE"/>
+        <result property="endowmentInsuranceBase" column="ENDOWMENT_INSURANCE_BASE"/>
+        <result property="unemploymentInsuranceBase" column="UNEMPLOYMENT_INSURANCE_BASE"/>
+        <result property="medicalInsuranceBase" column="MEDICAL_INSURANCE_BASE"/>
+        <result property="maternityInsuranceBase" column="MATERNITY_INSURANCE_BASE"/>
+        <result property="endowmentInsurancePayAmount" column="ENDOWMENT_INSURANCE_PAY_AMOUNT"/>
+        <result property="unemploymentInsurancePayAmount" column="UNEMPLOYMENT_INSURANCE_PAY_AMOUNT"/>
+        <result property="medicalInsurancePayAmount" column="MEDICAL_INSURANCE_PAY_AMOUNT"/>
+        <result property="employmentInjuryInsurancePayAmount" column="EMPLOYMENT_INJURY_INSURANCE_PAY_AMOUNT"/>
+        <result property="maternityInsurancePayAmount" column="MATERNITY_INSURANCE_PAY_AMOUNT"/>
+        <result property="endowmentInsuranceOweAmount" column="ENDOWMENT_INSURANCE_OWE_AMOUNT"/>
+        <result property="unemploymentInsuranceOweAmount" column="UNEMPLOYMENT_INSURANCE_OWE_AMOUNT"/>
+        <result property="medicalInsuranceOweAmount" column="MEDICAL_INSURANCE_OWE_AMOUNT"/>
+        <result property="employmentInjuryInsuranceOweAmount" column="EMPLOYMENT_INJURY_INSURANCE_OWE_AMOUNT"/>
+        <result property="maternityInsuranceOweAmount" column="MATERNITY_INSURANCE_OWE_AMOUNT"/>
+        <result property="socialSecurityCreateTime" column="SOCIAL_SECURITY_CREATE_TIME"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntAnnualreportSocialSecurityEntity">
+        insert into ENT_ANNUALREPORT_SOCIAL_SECURITY(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    BELONG_YEAR,
+						    TABLE_ID,
+						    ANNAULREPORT_ID,
+						    ENDOWMENT_INSURANCE,
+						    UNEMPLOYMENT_INSURANCE,
+						    MEDICAL_INSURANCE,
+						    EMPLOYMENT_INJURY_INSURANCE,
+						    MATERNITY_INSURANCE,
+						    ENDOWMENT_INSURANCE_BASE,
+						    UNEMPLOYMENT_INSURANCE_BASE,
+						    MEDICAL_INSURANCE_BASE,
+						    MATERNITY_INSURANCE_BASE,
+						    ENDOWMENT_INSURANCE_PAY_AMOUNT,
+						    UNEMPLOYMENT_INSURANCE_PAY_AMOUNT,
+						    MEDICAL_INSURANCE_PAY_AMOUNT,
+						    EMPLOYMENT_INJURY_INSURANCE_PAY_AMOUNT,
+						    MATERNITY_INSURANCE_PAY_AMOUNT,
+						    ENDOWMENT_INSURANCE_OWE_AMOUNT,
+						    UNEMPLOYMENT_INSURANCE_OWE_AMOUNT,
+						    MEDICAL_INSURANCE_OWE_AMOUNT,
+						    EMPLOYMENT_INJURY_INSURANCE_OWE_AMOUNT,
+						    MATERNITY_INSURANCE_OWE_AMOUNT,
+						    SOCIAL_SECURITY_CREATE_TIME,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.belongYear},
+	            #{item.tableId},
+	            #{item.annaulreportId},
+	            #{item.endowmentInsurance},
+	            #{item.unemploymentInsurance},
+	            #{item.medicalInsurance},
+	            #{item.employmentInjuryInsurance},
+	            #{item.maternityInsurance},
+	            #{item.endowmentInsuranceBase},
+	            #{item.unemploymentInsuranceBase},
+	            #{item.medicalInsuranceBase},
+	            #{item.maternityInsuranceBase},
+	            #{item.endowmentInsurancePayAmount},
+	            #{item.unemploymentInsurancePayAmount},
+	            #{item.medicalInsurancePayAmount},
+	            #{item.employmentInjuryInsurancePayAmount},
+	            #{item.maternityInsurancePayAmount},
+	            #{item.endowmentInsuranceOweAmount},
+	            #{item.unemploymentInsuranceOweAmount},
+	            #{item.medicalInsuranceOweAmount},
+	            #{item.employmentInjuryInsuranceOweAmount},
+	            #{item.maternityInsuranceOweAmount},
+	            #{item.socialSecurityCreateTime},
+	            sysdate,
+	            sysdate,
+	            1
+	     )
+        </foreach>
+    </insert>
+</mapper>

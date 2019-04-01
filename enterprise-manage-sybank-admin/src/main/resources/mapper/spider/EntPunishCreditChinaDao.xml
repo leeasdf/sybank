@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntPunishCreditChinaDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntPunishCreditChinaEntity" id="entPunishCreditChinaMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="result" column="RESULT"/>
+        <result property="areaName" column="AREA_NAME"/>
+        <result property="punishNumber" column="PUNISH_NUMBER"/>
+        <result property="reason" column="REASON"/>
+        <result property="typeSecond" column="TYPE_SECOND"/>
+        <result property="evidence" column="EVIDENCE"/>
+        <result property="punishStatus" column="PUNISH_STATUS"/>
+        <result property="decisionDate" column="DECISION_DATE"/>
+        <result property="type" column="TYPE"/>
+        <result property="departmentName" column="DEPARTMENT_NAME"/>
+        <result property="punishName" column="PUNISH_NAME"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntPunishCreditChinaEntity">
+        insert into ENT_PUNISH_CREDIT_CHINA(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    RESULT,
+						    AREA_NAME,
+						    PUNISH_NUMBER,
+						    REASON,
+						    TYPE_SECOND,
+						    EVIDENCE,
+						    PUNISH_STATUS,
+						    DECISION_DATE,
+						    TYPE,
+						    DEPARTMENT_NAME,
+						    PUNISH_NAME,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS,
+						    VERSION
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.result},
+	            #{item.areaName},
+	            #{item.punishNumber},
+	            #{item.reason},
+	            #{item.typeSecond},
+	            #{item.evidence},
+	            #{item.punishStatus},
+	            #{item.decisionDate},
+	            #{item.type},
+	            #{item.departmentName},
+	            #{item.punishName},
+	            sysdate,
+	            sysdate,
+	            1,
+	            0
+	     )
+        </foreach>
+    </insert>
+</mapper>

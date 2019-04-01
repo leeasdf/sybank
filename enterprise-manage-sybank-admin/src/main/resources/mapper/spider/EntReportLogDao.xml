@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntReportLogDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntReportLogEntity" id="entReportLogMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="collectDate" column="COLLECT_DATE"/>
+        <result property="interfaceType" column="INTERFACE_TYPE"/>
+        <result property="bizType" column="BIZ_TYPE"/>
+        <result property="reportContent" column="REPORT_CONTENT"/>
+        <result property="bizCode" column="BIZ_CODE"/>
+        <result property="seqNum" column="SEQ_NUM"/>
+        <result property="remark" column="REMARK"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntReportLogEntity">
+        insert into ENT_REPORT_LOG(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    COLLECT_DATE,
+						    INTERFACE_TYPE,
+						    BIZ_TYPE,
+						    REPORT_CONTENT,
+						    BIZ_CODE,
+						    SEQ_NUM,
+						    REMARK,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS,
+						    VERSION
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.collectDate},
+	            #{item.interfaceType},
+	            #{item.bizType},
+	            #{item.reportContent},
+	            #{item.bizCode},
+	            #{item.seqNum},
+	            #{item.remark},
+	            sysdate,
+	            sysdate,
+	            1,
+	            0
+	     )
+        </foreach>
+    </insert>
+</mapper>

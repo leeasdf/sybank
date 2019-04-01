@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntAnnualreportEquityChangeInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntAnnualreportEquityChangeInfoEntity" id="entAnnualreportEquityChangeInfoMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="belongYear" column="BELONG_YEAR"/>
+        <result property="reportYear" column="REPORT_YEAR"/>
+        <result property="investorName" column="INVESTOR_NAME"/>
+        <result property="ratioBefore" column="RATIO_BEFORE"/>
+        <result property="ratioAfter" column="RATIO_AFTER"/>
+        <result property="changeTime" column="CHANGE_TIME"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntAnnualreportEquityChangeInfoEntity">
+        insert into ENT_ANNUALREPORT_EQUITY_CHANGE_INFO(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    BELONG_YEAR,
+						    REPORT_YEAR,
+						    INVESTOR_NAME,
+						    RATIO_BEFORE,
+						    RATIO_AFTER,
+						    CHANGE_TIME,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.belongYear},
+	            #{item.reportYear},
+	            #{item.investorName},
+	            #{item.ratioBefore},
+	            #{item.ratioAfter},
+                #{item.changeTime},
+                sysdate, 
+                sysdate,
+                1
+	     )
+        </foreach>
+    </insert>
+</mapper>

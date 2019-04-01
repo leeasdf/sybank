@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntBranchInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntBranchInfoEntity" id="entBranchInfoMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="toco" column="TOCO"/>
+        <result property="logo" column="LOGO"/>
+        <result property="alias" column="ALIAS"/>
+        <result property="estiblishTime" column="ESTIBLISH_TIME"/>
+        <result property="regStatus" column="REG_STATUS"/>
+        <result property="type" column="TYPE"/>
+        <result property="legalPersonName" column="LEGAL_PERSON_NAME"/>
+        <result property="pencertileScore" column="PENCERTILE_SCORE"/>
+        <result property="legalPersonId" column="LEGAL_PERSON_ID"/>
+        <result property="companyId" column="COMPANY_ID"/>
+        <result property="category" column="CATEGORY"/>
+        <result property="regCapital" column="REG_CAPITAL"/>
+        <result property="name" column="NAME"/>
+        <result property="base" column="BASE"/>
+        <result property="personType" column="PERSON_TYPE"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntBranchInfoEntity">
+        insert into ENT_BRANCH_INFO(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    TOCO,
+						    LOGO,
+						    ALIAS,
+						    ESTIBLISH_TIME,
+						    REG_STATUS,
+						    TYPE,
+						    LEGAL_PERSON_NAME,
+						    PENCERTILE_SCORE,
+						    LEGAL_PERSON_ID,
+						    COMPANY_ID,
+						    CATEGORY,
+						    REG_CAPITAL,
+						    NAME,
+						    BASE,
+						    PERSON_TYPE,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS,
+						    VERSION
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.toco},
+	            #{item.logo},
+	            #{item.alias},
+	            #{item.estiblishTime},
+	            #{item.regStatus},
+	            #{item.type},
+	            #{item.legalPersonName},
+	            #{item.pencertileScore},
+	            #{item.legalPersonId},
+	            #{item.companyId},
+	            #{item.category},
+	            #{item.regCapital},
+	            #{item.name},
+	            #{item.base},
+	            #{item.personType},
+	            sysdate,
+	            sysdate,
+	            1,
+	            0
+	     )
+        </foreach>
+    </insert>
+</mapper>

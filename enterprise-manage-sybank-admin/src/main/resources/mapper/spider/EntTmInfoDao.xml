@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntTmInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntTmInfoEntity" id="entTmInfoMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="tmStatus" column="TM_STATUS"/>
+        <result property="tmClass" column="TM_CLASS"/>
+        <result property="searchType" column="SEARCH_TYPE"/>
+        <result property="uni" column="UNI"/>
+        <result property="tmName" column="TM_NAME"/>
+        <result property="tmId" column="TM_ID"/>
+        <result property="type" column="TYPE"/>
+        <result property="intCls" column="INT_CLS"/>
+        <result property="tmFlow" column="TM_FLOW"/>
+        <result property="category" column="CATEGORY"/>
+        <result property="tmPic" column="TM_PIC"/>
+        <result property="connList" column="CONN_LIST"/>
+        <result property="eventTime" column="EVENT_TIME"/>
+        <result property="appDate" column="APP_DATE"/>
+        <result property="regNo" column="REG_NO"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntTmInfoEntity">
+        insert into ENT_TM_INFO(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    TM_STATUS,
+						    TM_CLASS,
+						    SEARCH_TYPE,
+						    UNI,
+						    TM_NAME,
+						    TM_ID,
+						    TYPE,
+						    INT_CLS,
+						    TM_FLOW,
+						    CATEGORY,
+						    TM_PIC,
+						    CONN_LIST,
+						    EVENT_TIME,
+						    APP_DATE,
+						    REG_NO,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS,
+						    VERSION
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.tmStatus},
+	            #{item.tmClass},
+	            #{item.searchType},
+	            #{item.uni},
+	            #{item.tmName},
+	            #{item.tmId},
+	            #{item.type},
+	            #{item.intCls},
+	            #{item.tmFlow},
+	            #{item.category},
+	            #{item.tmPic},
+	            #{item.connList},
+	            #{item.eventTime},
+	            #{item.appDate},
+	            #{item.regNo},
+	            sysdate,
+	            sysdate,
+	            1,
+	            0
+	     )
+        </foreach>
+    </insert>
+</mapper>

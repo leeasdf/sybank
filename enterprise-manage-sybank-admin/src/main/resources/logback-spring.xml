@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/2002/xmlspec/dtd/2.10/xmlspec.dtd">
+<configuration>
+	<!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 -->
+	<property name="logging.path" value="./log/" />
+	<property name="CUSTOM_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread]%logger -%msg%n"/>
+
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+	<logger name="org.springframework.web" level="INFO" />
+	<logger name="org.springboot.sample" level="TRACE" />
+
+	<!-- 控制台输出 -->
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<!--此日志appender是为开发使用，只配置最底级别，控制台输出的日志级别是大于或等于此级别的日志信息 -->
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>${CUSTOM_LOG_PATTERN}</pattern>
+			<!-- 设置字符集 -->
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+	<!-- 按照每天生成日志文件 -->
+	<appender name="DEBUG_FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${logging.path}/sybank_ent_manage.debug.log.%d{yyyy-MM-dd}.log</FileNamePattern>
+			<!--日志文件保留天数 -->
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+			<pattern>${CUSTOM_LOG_PATTERN}</pattern>
+			<charset>UTF-8</charset> <!-- 设置字符集 -->
+		</encoder>
+		<!--日志文件最大的大小 -->
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>256MB</MaxFileSize>
+		</triggeringPolicy>
+		<!-- 此日志文件只记录debug级别的 -->
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>debug</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+
+	<appender name="INFO_FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${logging.path}/sybank_ent_manage.info.log.%d{yyyy-MM-dd}.log</FileNamePattern>
+			<!--日志文件保留天数 -->
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+			<pattern>${CUSTOM_LOG_PATTERN}</pattern>
+			<charset>UTF-8</charset> <!-- 设置字符集 -->
+		</encoder>
+		<!--日志文件最大的大小 -->
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>256MB</MaxFileSize>
+		</triggeringPolicy>
+		<!-- 此日志文件只记录debug级别的 -->
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+
+	<appender name="ERROR_FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${logging.path}/sybank_ent_manage.error.log.%d{yyyy-MM-dd}.log</FileNamePattern>
+			<!--日志文件保留天数 -->
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+			<pattern>${CUSTOM_LOG_PATTERN}</pattern>
+			<charset>UTF-8</charset> <!-- 设置字符集 -->
+		</encoder>
+		<!--日志文件最大的大小 -->
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>256MB</MaxFileSize>
+		</triggeringPolicy>
+		<!-- 此日志文件只记录debug级别的 -->
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+
+<!-- 开发、测试环境 -->
+	<springProfile name="dev,test">
+			<!-- 将控制指定name包下的所有类的日志的打印，通过level设置打印级别 -->
+			<logger name="org.springframework" level="ERROR" />
+			<logger name="org.apache.commons" level="ERROR" />
+			<!-- <logger name="org.mybatis" level="debug" /> -->
+			<!-- <logger name="org.apache.ibatis.io.ResolverUtil" level="ERROR" /> -->
+			<!-- <logger name="org.apache.ibatis.logging" level="ERROR" /> -->
+			<logger name="com.alibaba.druid" level="INFO" />
+			<logger name="org.apache.http" level="INFO" />
+			<logger name="xin.tianchuang" level="debug" />
+	</springProfile>
+
+	<!-- 生产环境 -->
+	<springProfile name="prod">
+		<logger name="org.springframework" level="ERROR" />
+		<logger name="org.apache.commons" level="ERROR" />
+		<!-- <logger name="org.mybatis" level="ERROR" /> -->
+		<!-- <logger name="org.apache.ibatis.io.ResolverUtil" level="ERROR" /> -->
+		<!-- <logger name="org.apache.ibatis.logging" level="ERROR" /> -->
+		<logger name="com.alibaba.druid" level="ERROR" />
+		<logger name="org.apache.http" level="ERROR" />
+		<logger name="xin.tiancuang" level="ERROR" />
+
+	</springProfile>
+	
+	
+	<!-- 日志输出级别 -->
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="DEBUG_FILE" />
+		<appender-ref ref="INFO_FILE" />
+		<appender-ref ref="ERROR_FILE" />
+	</root>
+
+</configuration>

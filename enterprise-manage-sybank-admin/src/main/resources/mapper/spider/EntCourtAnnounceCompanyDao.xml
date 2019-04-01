@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntCourtAnnounceCompanyDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntCourtAnnounceCompanyEntity" id="entCourtAnnounceCompanyMap">
+        <result property="id" column="id"/>
+        <result property="tableId" column="TABLE_ID"/>
+        <result property="type" column="TYPE"/>
+        <result property="refId" column="REF_ID"/>
+        <result property="name" column="NAME"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntCourtAnnounceCompanyEntity">
+        insert into ENT_COURT_ANNOUNCE_COMPANY(
+						    TABLE_ID,
+						    TYPE,
+						    REF_ID,
+						    NAME,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS,
+						    VERSION
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.tableId},
+	            #{item.type},
+	            #{item.refId},
+	            #{item.name},
+	            sysdate,
+	            sysdate,
+	            1,
+	            0
+	     )
+        </foreach>
+    </insert>
+</mapper>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xin.tianchuang.modules.spider.dao.EntPatentsInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="xin.tianchuang.modules.spider.entity.EntPatentsInfoEntity" id="entPatentsInfoMap">
+        <result property="id" column="id"/>
+        <result property="entId" column="ENT_ID"/>
+        <result property="entName" column="ENT_NAME"/>
+        <result property="creditCode" column="CREDIT_CODE"/>
+        <result property="mainCatNum" column="MAIN_CAT_NUM"/>
+        <result property="patentsCreateTime" column="PATENTS_CREATE_TIME"/>
+        <result property="pubnumber" column="PUBNUMBER"/>
+        <result property="searchType" column="SEARCH_TYPE"/>
+        <result property="appnumber" column="APPNUMBER"/>
+        <result property="tableId" column="TABLE_ID"/>
+        <result property="type" column="TYPE"/>
+        <result property="title" column="TITLE"/>
+        <result property="patentName" column="PATENT_NAME"/>
+        <result property="connList" column="CONN_LIST"/>
+        <result property="applicationTime" column="APPLICATION_TIME"/>
+        <result property="applicantname" column="APPLICANTNAME"/>
+        <result property="patentType" column="PATENT_TYPE"/>
+        <result property="pubDate" column="PUB_DATE"/>
+        <result property="applicationPublishNum" column="APPLICATION_PUBLISH_NUM"/>
+        <result property="agency" column="AGENCY"/>
+        <result property="uni" column="UNI"/>
+        <result property="inventor" column="INVENTOR"/>
+        <result property="agent" column="AGENT"/>
+        <result property="applicationPublishTime" column="APPLICATION_PUBLISH_TIME"/>
+        <result property="patentNum" column="PATENT_NUM"/>
+        <result property="imgUrl" column="IMG_URL"/>
+        <result property="allCatNum" column="ALL_CAT_NUM"/>
+        <result property="abstracts" column="ABSTRACTS"/>
+        <result property="address" column="ADDRESS"/>
+        <result property="uuid" column="UUID"/>
+        <result property="eventTime" column="EVENT_TIME"/>
+        <result property="applicantName" column="APPLICANT_NAME"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="dataStatus" column="DATA_STATUS"/>
+        <result property="version" column="VERSION"/>
+    </resultMap>
+
+<insert id="insertBatch" parameterType="xin.tianchuang.modules.spider.entity.EntPatentsInfoEntity">
+        insert into ENT_PATENTS_INFO(
+						    ENT_ID,
+						    ENT_NAME,
+						    CREDIT_CODE,
+						    MAIN_CAT_NUM,
+						    PATENTS_CREATE_TIME,
+						    PUBNUMBER,
+						    SEARCH_TYPE,
+						    APPNUMBER,
+						    TABLE_ID,
+						    TYPE,
+						    TITLE,
+						    PATENT_NAME,
+						    CONN_LIST,
+						    APPLICATION_TIME,
+						    APPLICANTNAME,
+						    PATENT_TYPE,
+						    PUB_DATE,
+						    APPLICATION_PUBLISH_NUM,
+						    AGENCY,
+						    UNI,
+						    INVENTOR,
+						    AGENT,
+						    APPLICATION_PUBLISH_TIME,
+						    PATENT_NUM,
+						    IMG_URL,
+						    ALL_CAT_NUM,
+						    ABSTRACTS,
+						    ADDRESS,
+						    UUID,
+						    EVENT_TIME,
+						    APPLICANT_NAME,
+						    CREATE_TIME,
+						    UPDATE_TIME,
+						    DATA_STATUS,
+						    VERSION
+			        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+	            #{item.entId},
+	            #{item.entName},
+	            #{item.creditCode},
+	            #{item.mainCatNum},
+	            #{item.patentsCreateTime},
+	            #{item.pubnumber},
+	            #{item.searchType},
+	            #{item.appnumber},
+	            #{item.tableId},
+	            #{item.type},
+	            #{item.title},
+	            #{item.patentName},
+	            #{item.connList},
+	            #{item.applicationTime},
+	            #{item.applicantname},
+	            #{item.patentType},
+	            #{item.pubDate},
+	            #{item.applicationPublishNum},
+	            #{item.agency},
+	            #{item.uni},
+	            #{item.inventor},
+	            #{item.agent},
+	            #{item.applicationPublishTime},
+	            #{item.patentNum},
+	            #{item.imgUrl},
+	            #{item.allCatNum},
+	            #{item.abstracts},
+	            #{item.address},
+	            #{item.uuid},
+	            #{item.eventTime},
+	            #{item.applicantName},
+	            sysdate,
+	            sysdate,
+	            1,
+	            0
+	     )
+        </foreach>
+    </insert>
+</mapper>
